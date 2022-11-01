@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+}
+
+header {
+  height: 600px;
+  line-height: 600px;
+  border: coral 3px solid;
+}
+
+#container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-element {
+  height: 600px;
+  line-height: 600px;
+}
+
+#content1 {
+  background-color: cornsilk;
+}
+
+#content2 {
+  background-color: darksalmon;
+}
+
+#content3 {
+  background-color: chocolate;
+}
+
+#content4 {
+  background-color: crimson;
+}
+
+.scrolled.fade-in {
+  animation: fade-in ease-in-out both;
+}
+
+.js-scroll {
+  opacity: 0;
+}
+
+/* Keyframe animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
