@@ -1,19 +1,32 @@
-'strict mode'
+'Strict Mode'
 const scrollElements = document.querySelectorAll(".js-scroll")
 scrollElements.forEach(
   (el) => {
-    if (elementInView(el)) {
+    if (elementInView(el, .2)) {
       displayScrollElement(el)
     }
   }
 )
+window.addEventListener('scroll', throttle(handleScrollAnimation, 500))
+function handleScrollAnimation() {
+  scrollElements.forEach(
+    (el) => {
+      if (elementInView(el, .2)) {
+        displayScrollElement(el)
+      } else if (elementOutOfView) {
+        hideScrollElement(el)
+      }
+    }
+  )
+}
 // fucntions
 //checks whether element is in viewable area
-function elementInView(el) {
+function elementInView(el, amountInView = 1) {
   const elementTop = el.getBoundingClientRect().top;
   const elementHeight = el.getBoundingClientRect().height;
   return (
-    elementTop <= document.documentElement.clientHeight && elementTop > 0
+    // elementTop + (elementHeight * amountInView) <= document.documentElement.clientHeight && elementTop.clientHeight && elementTop + (elementHeight * amountInView) > 0
+    elementTop + elementHeight * amountInView <= document.documentElement.clientHeight && elementTop + elementHeight * amountInView > 0
   )
 }
 // checks whether element is above or below viewable area
